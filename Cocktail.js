@@ -51,12 +51,14 @@
         _.each(collisions, function(propertyValues, propertyName) {
             obj[propertyName] = function() {
                 var that = this,
-                    args = arguments,
+                    args = [].slice.call(arguments),
                     returnValue;
 
                 _.each(propertyValues, function(value) {
-                    var returnedValue = _.isFunction(value) ? value.apply(that, args) : value;
-                    returnValue = (typeof returnedValue === 'undefined' ? returnValue : returnedValue);
+                    var newValue = (_.isFunction(value) ? value.apply(that, args) : value);
+                    returnValue = _.isUndefined(newValue) ? returnValue : newValue;
+
+                    args.push(returnValue);
                 });
 
                 return returnValue;
