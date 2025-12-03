@@ -13,5 +13,5 @@ diana_metadata:
       - king@csdisco.com
       - mccrary@csdisco.com
     alternate_owners:
-      - "@csdisco/ui-platform"
-      - "@csdisco/legion-ui"
+      - "@csdisco/reflect-ui"
+      - "@csdisco/reflect-ui"
